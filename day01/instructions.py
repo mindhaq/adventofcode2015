@@ -1,3 +1,9 @@
+class Instructions:
+    def __init__(self, data):
+        self.finalFloor = instruct(data)
+        self.firstCellar = firstcellar(data)
+
+
 def instruct(data):
     total = len(data)
     ups = 0

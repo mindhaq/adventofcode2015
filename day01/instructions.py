@@ -36,8 +36,9 @@ def firstcellar(data):
 if __name__ == '__main__':
     fin = open("input.txt")
     data = fin.read()
-    floor = instruct(data)
-    firstCellar = firstcellar(data)
+    instructions = Instructions(data)
+    floor = instructions.finalFloor
+    firstCellar = instructions.firstCellar
 
     print "Santa needs to go to floor " + str(floor)
     print "He gets to the cellar for the first time at step " + str(firstCellar)

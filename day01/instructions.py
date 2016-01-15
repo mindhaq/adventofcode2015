@@ -10,9 +10,26 @@ def instruct(data):
 
     return ups - downs
 
+def firstcellar(data):
+    level = 0
+    steps = 0
+    while steps < len(data):
+        cmd = data[steps]
+        steps = steps + 1
+
+        if cmd == '(':
+            level = level + 1
+        elif cmd == ')':
+            level = level - 1
+
+        if level == - 1:
+            return steps
+
+
 if __name__ == '__main__':
     fin = open("input.txt")
     data = fin.read()
     floor = instruct(data)
 
     print "Santa needs to go to floor " + str(floor)
+    print "He gets to the cellar for the first time at step " + str(firstcellar(data))

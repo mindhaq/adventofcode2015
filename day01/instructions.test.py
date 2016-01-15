@@ -20,6 +20,10 @@ class InstructionsTest(unittest.TestCase):
         self.assertIs(-3, instructions.instruct(")))"))
         self.assertIs(-3, instructions.instruct(")())())"))
 
+    def test_stepstocellar(self):
+        self.assertIs(1, instructions.firstcellar(")"))
+        self.assertIs(5, instructions.firstcellar("()())"))
+
 
 if __name__ == '__main__':
     unittest.main()

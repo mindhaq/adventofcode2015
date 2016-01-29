@@ -11,11 +11,13 @@ class PresentsListTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(24, $box->getRequiredPaper());
     }
 
+    // using a test to solve the actual puzzle
     public function testReadPuzzleInput() {
         $presentsList = new PresentsList();
 
         $presentsList->addListFrom("input.txt");
 
         $this->assertEquals(1588178, $presentsList->getRequiredPaper());
+        $this->assertEquals(3783758, $presentsList->getRequiredRibbon());
     }
 }

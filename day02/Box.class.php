@@ -31,5 +31,19 @@ class Box {
                $this->getSmallestFace();
     }
 
+    public function getVolume() {
+        return $this->length * $this->width * $this->height;
+    }
+
+    public function getShortestPerimeter() {
+        return 2 * min($this->length + $this->width,
+                        $this->length + $this->height,
+                        $this->height + $this->width);
+    }
+
+    public function getRequiredRibbon() {
+        return $this->getShortestPerimeter() + $this->getVolume();
+    }
+
 }
 

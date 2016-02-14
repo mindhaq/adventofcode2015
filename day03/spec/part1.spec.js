@@ -1,36 +1,40 @@
-var GridSanta = require('../GridSanta.js');
+var Santa = require("../Santa.js");
+var Grid = require("../Grid.js");
+var Elf = require("../Elf.js");
 
 describe("Examples from part1 as specs.", function() {
 
-    var gridSanta;
+    var santa, grid, elf;
 
     beforeEach(function () {
-        gridSanta = new GridSanta();
+        santa = new Santa();
+        grid = new Grid();
+        elf = new Elf(grid, santa);
     });
 
     it("Delivered two houses after moving", function() {
-        gridSanta.execute(">");
+        elf.followDirections(">");
 
-        expect(gridSanta.getNumberOfDeliveredHouses()).toBe(2);
+        expect(grid.getNumberOfDeliveredHouses()).toBe(2);
     });
 
     it("Delivered four houses after moving", function() {
-        gridSanta.followDirections("^>v<");
+        elf.followDirections("^>v<");
 
-        expect(gridSanta.getNumberOfDeliveredHouses()).toBe(4);
+        expect(grid.getNumberOfDeliveredHouses()).toBe(4);
     });
 
     it("Delivered two houses after moving", function() {
-        gridSanta.followDirections("^v^v^v^v^v");
+        elf.followDirections("^v^v^v^v^v");
 
-        expect(gridSanta.getNumberOfDeliveredHouses()).toBe(2);
+        expect(grid.getNumberOfDeliveredHouses()).toBe(2);
     });
 
     // solve puzzle with a test
     it("Reading input calculates the result", function () {
-        gridSanta.readDirectionsFromFile();
+        elf.readDirectionsFromFile();
 
-        expect(gridSanta.getNumberOfDeliveredHouses()).toBe(2081);
+        expect(grid.getNumberOfDeliveredHouses()).toBe(2081);
     });
 
 });

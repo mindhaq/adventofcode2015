@@ -8,19 +8,19 @@ describe("Examples from part1 as specs.", function() {
         gridSanta = new GridSanta();
     });
 
-    it("Delivered two houses after moving right", function() {
+    it("Delivered two houses after moving", function() {
         gridSanta.execute(">");
 
         expect(gridSanta.getNumberOfDeliveredHouses()).toBe(2);
     });
 
-    it("Delivered two houses after moving right", function() {
+    it("Delivered four houses after moving", function() {
         gridSanta.followDirections("^>v<");
 
         expect(gridSanta.getNumberOfDeliveredHouses()).toBe(4);
     });
 
-    it("Delivered two houses after moving right", function() {
+    it("Delivered two houses after moving", function() {
         gridSanta.followDirections("^v^v^v^v^v");
 
         expect(gridSanta.getNumberOfDeliveredHouses()).toBe(2);

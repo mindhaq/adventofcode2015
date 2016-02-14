@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 module.exports = function() {
 
     var grid = [[]];
@@ -75,6 +77,12 @@ module.exports = function() {
         }
     };
 
+    this.readDirectionsFromFile = function () {
+        var input = fs.readFileSync("input.txt", "utf8");
+        this.followDirections(input);
+    };
+
+    // drop first present right away
     dropPresent();
 };
 

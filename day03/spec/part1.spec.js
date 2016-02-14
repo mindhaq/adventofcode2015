@@ -14,18 +14,23 @@ describe("Examples from part1 as specs.", function() {
         expect(gridSanta.getNumberOfDeliveredHouses()).toBe(2);
     });
 
-
     it("Delivered two houses after moving right", function() {
         gridSanta.followDirections("^>v<");
 
         expect(gridSanta.getNumberOfDeliveredHouses()).toBe(4);
     });
 
-
     it("Delivered two houses after moving right", function() {
         gridSanta.followDirections("^v^v^v^v^v");
 
         expect(gridSanta.getNumberOfDeliveredHouses()).toBe(2);
+    });
+
+    // solve puzzle with a test
+    it("Reading input calculates the result", function () {
+        gridSanta.readDirectionsFromFile();
+
+        expect(gridSanta.getNumberOfDeliveredHouses()).toBe(2081);
     });
 
 });

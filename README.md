@@ -24,4 +24,10 @@ then, it was the easiest way to get server side code running on a webserver. Muc
 as a software developer was about writing a lot of PHP code. I'm not doing that much anymore, but
 then Spain doesn't have the Peso anymore as well.
 
+Day 3: JavaScript
+
+I wrote my first JavaScripts in 1996, targeting Netscape Navigator 2.0. The language has gone a long
+way and was deemed to "die soon" several times in those 20 years. However, development never stopped,
+and first with the rise of AJAX and later going (back) to the server with node.js it proved to be
+a very valuable tool, besides its shortcomings.
 

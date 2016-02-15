@@ -31,3 +31,10 @@ way and was deemed to "die soon" several times in those 20 years. However, devel
 and first with the rise of AJAX and later going (back) to the server with node.js it proved to be
 a very valuable tool, besides its shortcomings.
 
+Day 4: Shell script
+
+Although I never wrote any complex shell scripts, nor do I write any very often, I still like the
+brevity of the code, i.e. doing a lot with writing so little. Lacking the practice, I have to
+learn the syntax all over again every time, but hey. For the simple brute-force attack on the
+AdventCoins problem it seemed to be the perfect tool.
+

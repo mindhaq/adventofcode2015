@@ -1,16 +1,22 @@
 var fs = require('fs');
 
-module.exports = function(grid, santa) {
+module.exports = function(grid, santa1, santa2) {
+
+    var santas = santa2 ? [santa1, santa2] : [santa1];
 
     var dropPresent = function(santa) {
         grid.dropPresent(santa.getPosX(), santa.getPosY());
     };
 
     this.followDirections = function (directions) {
-        for (var i = 0; i < directions.length; i++) {
-            santa.execute(directions.charAt(i));
-            dropPresent(santa);
-        }
+        var i = 0;
+        do {
+            for (var j = 0; j < santas.length; j++) {
+                santas[j].execute(directions.charAt(i));
+                dropPresent(santas[j]);
+                i++;
+            }
+        } while (i < directions.length);
     };
 
     this.readDirectionsFromFile = function () {
@@ -19,6 +25,6 @@ module.exports = function(grid, santa) {
     };
 
     // drop first present right away
-    dropPresent(santa);
+    dropPresent(santa1);
 };
 

@@ -1,5 +1,7 @@
 #!/bin/sh
 
+[ $# -eq 0 ] && { echo "Usage: $0 key"; exit 1; }
+
 while [[ ${coin:0:5} != "00000" ]]; do
     i=$((++i))
     coin=`md5 -qs $1$i`

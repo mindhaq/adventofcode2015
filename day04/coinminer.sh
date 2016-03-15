@@ -1,12 +1,14 @@
 #!/bin/sh
 
-[ $# -eq 0 ] && { echo "Usage: $0 key"; exit 1; }
+[ $# -lt 2 ] && { echo "Usage: $0 key zeroes"; exit 1; }
 
-while [[ ${coin:0:5} != "00000" ]]; do
+zeroes=`seq -f '0' -s '' $2`
+
+while [[ ${coin:0:$2} != $zeroes ]]; do
     i=$((++i))
     coin=`md5 -qs $1$i`
 
-    if [[ $((i % 1000)) == 0 ]]; then
+    if [[ $((i % 10000)) == 0 ]]; then
         echo digging $1$i: $coin
     fi
 done

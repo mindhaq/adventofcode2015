@@ -13,4 +13,10 @@ sub nicestring1 {
     return $b1 && $b2 && !$b3;
 }
 
+sub nicestring2 {
+    $s = shift;
+
+    return 0;
+}
+
 1;

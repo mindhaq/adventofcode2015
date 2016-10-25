@@ -16,7 +16,7 @@ Seems like a good match for adventofcode as well ;)
 
 Day 2: PHP
 
-End of January 2016 I stayed on the Philippines. Their currency is the Philippine Peso, an (Erbe)
+End of January 2016 I stayed on the Philippines. Their currency is the Philippine Peso, a heritage
 from the times when they were a spanish colony. The shortcode for it is PHP.
 
 I learned PHP back in 1999, when it was still sometimes referred to as Personal Home Page. Already back
@@ -37,4 +37,10 @@ Although I never wrote any complex shell scripts, nor do I write any very often,
 brevity of the code, i.e. doing a lot with writing so little. Lacking the practice, I have to
 learn the syntax all over again every time, but hey. For the simple brute-force attack on the
 AdventCoins problem it seemed to be the perfect tool.
+
+Day 5: PERL
+
+Back in the days, PERL was THE language of choice for backend web development of so called
+CGI scripts. I never really got into it, and actually tried to avoid ever since. Still, I guess
+it has its fair place in the world, and for handling string patter recognition it is a good match.
 

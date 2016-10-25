@@ -1,0 +1,16 @@
+sub nicestring {
+    $s = shift;
+
+    $b1 = $s =~ /(.*[aeiou]){3,}/;
+#    print "$s matches pattern1: $b1\n";
+
+    $b2 = $s =~ /(.)\1/;
+#    print "$s matches pattern2: $b2\n";
+
+    $b3 = $s =~ /(ab|cd|pq|xy)/;
+#    print "$s matches pattern3: $b3\n";
+
+    return $b1 && $b2 && !$b3;
+}
+
+1;

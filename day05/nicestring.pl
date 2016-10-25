@@ -1,4 +1,4 @@
-sub nicestring {
+sub nicestring1 {
     $s = shift;
 
     $b1 = $s =~ /(.*[aeiou]){3,}/;

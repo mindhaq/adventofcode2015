@@ -10,10 +10,10 @@ open($handle, $puzzleinput)
     || die "$0: can't open $filename for reading: $!";
 
 while (<$handle>) {
-    if (nicestring($_)) {
+    if (nicestring1($_)) {
         $count++;
     }
 }
 
-print "$count nice strings.";
+print "$count nice strings for specification 1.";
 

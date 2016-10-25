@@ -14,6 +14,10 @@ while (<$handle>) {
     if (nicestring1($_)) {
         $count1++;
     }
+
+    if (nicestring2($_)) {
+        $count2++;
+    }
 }
 
 print "$count1 nice strings for specification 1.\n";

@@ -16,7 +16,13 @@ sub nicestring1 {
 sub nicestring2 {
     $s = shift;
 
-    return 0;
+    $b1 = $s =~ /(.)(.).*\1\2/;
+#    print "$s matches pattern1: $b1\n";
+
+    $b2 = $s =~ /(.).(\1)/;
+#    print "$s matches pattern1: $b2\n";
+
+    return $b1 && $b2;
 }
 
 1;

@@ -66,12 +66,31 @@ begin
     ParseCommand := cmd;
 end;
 
+// lights are either on (1) or off (0)
+function SwitchLightPart1 (action: Action; val: ShortInt) : ShortInt;
+begin
+    case action of
+        turnon : val := 1;
+        turnoff : val := 0;
+        toggle:
+            begin
+                if val = 0 then
+                    val := 1
+                else
+                    val := 0;
+                end;
+            end;
+
+    SwitchLightPart1 := val;
+end;
+
 var
-    a: array [0..999, 0..999] of Boolean;
+    // all the lights
+    a: array [0..999, 0..999] of ShortInt;
     i,j : Integer;
     c: LongInt = 0;
     cmd: Command;
-    val: Boolean;
+    val: ShortInt;
     line: String;
     f: Text;
     lc: Integer = 1;
@@ -81,18 +100,17 @@ begin
     c := 0;
     for i:=0 to 999 do
         for j:=0 to 999 do
-            if a[i,j] = true then
+            if a[i,j] > 0 then
                 c := c + 1;
 
     writeln(c, ' lights are burning');
-
 end;
 
 begin
 
-Assign (f, 'input.txt');
     CountLights();
 
+    Assign (f, 'input.txt');
     Reset(f);
     while (not Eof(f)) and (lc <= 300) do
     begin
@@ -104,17 +122,13 @@ Assign (f, 'input.txt');
         for i := cmd.alpha.x to cmd.omega.x do
             for j := cmd.alpha.y to cmd.omega.y do
             begin
-                case cmd.action of
-                    turnon : val := true;
-                    turnoff : val := false;
-                    toggle: val := not a[i,j];
-                end;
+                val := SwitchLightPart1(cmd.action, a[i,j]);
 
                 a[i,j] := val;
             end;
-
-        CountLights();
     end;
+
+    CountLights();
 
 end.
 

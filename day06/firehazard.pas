@@ -17,6 +17,8 @@ type
         omega: Coord;
     end;
 
+    LightStrategy = function (action: Action; val: ShortInt) : ShortInt;
+
 function ParseCoord (s : String) : Coord;
 var
     p : Integer;
@@ -94,6 +96,7 @@ var
     line: String;
     f: Text;
     lc: Integer = 1;
+    strat: Pointer;
 
 procedure CountLights();
 begin
@@ -108,7 +111,7 @@ end;
 
 begin
 
-    CountLights();
+    strat := @SwitchLightPart1;
 
     Assign (f, 'input.txt');
     Reset(f);
@@ -122,9 +125,7 @@ begin
         for i := cmd.alpha.x to cmd.omega.x do
             for j := cmd.alpha.y to cmd.omega.y do
             begin
-                val := SwitchLightPart1(cmd.action, a[i,j]);
-
-                a[i,j] := val;
+                a[i,j] := LightStrategy(strat)(cmd.action, a[i,j]);
             end;
     end;
 

@@ -76,14 +76,25 @@ begin
         turnoff : val := 0;
         toggle:
             begin
-                if val = 0 then
-                    val := 1
-                else
-                    val := 0;
+                if val = 0
+                    then val := 1
+                    else val := 0;
                 end;
             end;
 
     SwitchLightPart1 := val;
+end;
+
+// lights have a brightness from 0
+function SwitchLightPart2 (action: Action; val: ShortInt) : ShortInt;
+begin
+    case action of
+        turnon : val := val + 1;
+        turnoff : if val > 0 then val := val - 1;
+        toggle : val := val + 2;
+    end;
+
+    SwitchLightPart2 := val;
 end;
 
 var
@@ -104,14 +115,16 @@ begin
     for i:=0 to 999 do
         for j:=0 to 999 do
             if a[i,j] > 0 then
-                c := c + 1;
+                c := c + a[i,j];
 
     writeln(c, ' lights are burning');
 end;
 
+// start program with parameter part2 to solve part2, otherwise part1
 begin
-
-    strat := @SwitchLightPart1;
+    if ParamStr(1) = 'part2'
+        then strat := @SwitchLightPart2
+        else strat := @SwitchLightPart1;
 
     Assign (f, 'input.txt');
     Reset(f);
@@ -124,9 +137,7 @@ begin
 
         for i := cmd.alpha.x to cmd.omega.x do
             for j := cmd.alpha.y to cmd.omega.y do
-            begin
                 a[i,j] := LightStrategy(strat)(cmd.action, a[i,j]);
-            end;
     end;
 
     CountLights();
